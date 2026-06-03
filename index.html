@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetidor de Texto</title>
+
+    <script src="https://tailwindcss.com"></script><script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @layer base {
+         :root {
+          @apply text-sm;
+           line-height: 1.5;
+         }
+      }
+    </style>
+</head>
+
+<body class="bg-[url('img.jpg')] bg-cover bg-center bg-no-repeat min-h-screen flex items-center justify-center p-4">
+
+    <!-- Contenedor Principal Adaptable (Mobile-First) -->
+    <div class="bg-white p-6 sm:p-8 w-full max-w-2xl border border-gray-300 rounded-xl shadow-md">
+        
+        <!-- Encabezado Serif -->
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center border-b border-gray-200 pb-4" style="font-family: 'Times New Roman', Times, serif;">
+         Repetidor de Texto (Repeat)
+        </h1>
+
+        <!-- Formulario con Grid: 1 columna en móviles, 2 columnas desde pantallas md en adelante -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            
+            <!-- Bloque Entrada de Texto original -->
+            <div class="flex flex-col gap-1.5">
+                <label for="input-texto" class="font-medium text-gray-700">Introduce el texto original:</label>
+                <input id="input-texto" type="text" placeholder="Ej: Hola Mundo" 
+                       class="border border-gray-300 rounded-md p-2.5 bg-gray-50 focus:bg-white focus:outline-gray-400 transition-all text-sm">
+            </div>
+
+            <!-- Bloque Entrada de Número de Repeticiones -->
+            <div class="flex flex-col gap-1.5">
+                <label for="input-veces" class="font-medium text-gray-700">Número de repeticiones:</label>
+                <input id="input-veces" type="number" min="1" placeholder="Ej: 3" 
+                       class="border border-gray-300 rounded-md p-2.5 bg-gray-50 focus:bg-white focus:outline-gray-400 transition-all text-sm font-mono">
+            </div>
+
+        </div>
+
+        <!-- Botonera Flexible Responsiva -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+            <button id="btn-procesar" type="button" 
+                    class="border-2 border-black bg-black text-white font-bold py-2.5 px-6 rounded-md hover:bg-gray-800 transition-all cursor-pointer text-sm active:scale-95 text-center">
+                 Ejecutar 
+            </button>
+            <button id="btn-limpiar" type="button" 
+                    class="border border-gray-300 bg-gray-200 text-gray-800 font-medium py-2.5 px-6 rounded-md hover:bg-gray-100 transition-all cursor-pointer text-sm active:scale-95 text-center">
+             Limpiar
+            </button>
+        </div>
+
+        <!-- Panel de Visualización del Resultado (Estilo Consola) -->
+        <div id="contenedor-resultado" class="border border-gray-200 bg-gray-50 rounded-lg p-4 font-mono transition-all">
+            <span id="titulo-resultado" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Resultado por Pantalla:</span>
+            <div id="resultado-pantalla" class="text-base text-black font-bold break-all min-h-[1.75rem]">...</div>
+        </div>
+
+    </div>
+
+    <!-- Enlace al script lógico totalmente independiente -->
+    <script src="./js/app.js"></script>
+</body>
+</html>
